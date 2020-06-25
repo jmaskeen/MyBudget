@@ -1,0 +1,32 @@
+<div ng-controller="LogInCTRL">
+    <!-- {{test}} -->
+    <div class="container" >
+        <div class="jumbotron" style="padding-bottom:0px;">
+          <h2>Login to Budget App</h2>
+        </div>
+        <form class="form-signin" name="siginForm" role="form">
+          <div class="form-group" ng-class="{ 'has-error' : siginForm.email.$invalid }">
+            <label>Email</label>
+            <input ng-model="user.email" type="email" name="email" class="form-control" placeholder="Type your email login address" required="" autofocus="">
+            <p class="help-block" ng-show="signinForm.email.$invalid">Enter a valid email.</p>
+          </div>
+          <div class="form-group" ng-class="{'has-error' : signinForm.password.$invalid}">
+            <label>Password</label>
+            <input ng-model="user.password" name="password" ng-minlength="6" type="password" class="form-control" placeholder="Password" required="">
+            <p class="help-block" ng-show="signinForm.password.$error.minlength">Min password length is 6 characters.</p>
+          </div>
+          <label class="checkbox"><a href="#!/Signup"> Sign Up</a></label>
+          <p style="color:red" ng-show="regError">{{regErrorMessage}}</p>
+  
+          <!-- <div class="row">
+            <select id="txtDB" ng-model="user.db" class="form-control input-md" ng-change="changeDB(user.db)" data-ng-options="loginDB as loginDB.title for loginDB in loginDBs">
+              <option value = "">Select Database</option>
+            </select>
+            <label class="checkbox"><a href="#/DBMan"> Manage Databases</a></label>
+          </div> -->
+  
+          </br>
+          <button type="button" ladda-loading="login.loading" data-style="expand-right" ng-disabled="!user.email || !user.password" ng-click="SignIn($event)" class="btn btn-lg segoe-ui-light ladda-button btn-primary btn-block"><span class="ladda-label">Sign in</span></button>
+        </form>
+      </div>
+</div>
